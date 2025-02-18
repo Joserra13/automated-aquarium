@@ -9,11 +9,11 @@ export default function Header() {
   return (
     <header className="text-white py-4 sticky top-0 z-50 font-[family-name:var(--font-geist-sans)]">
       {/* Header container */}
-      <div className="container mx-auto px-4 flex justify-around items-center">
+      <div className="container mx-auto px-4 flex justify-center items-center md:justify-between relative">
         {/* Website title */}
-        <h1 className="text-xl font-semibold">automatedAquarium</h1>
+        <h1 className="text-xl font-semibold">          automatedAquarium        </h1>
         {/* Navigation menu */}
-        <nav className="hidden md:block ">
+        <nav className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
           <ul className="flex gap-x-6">
             {/* Navigation links */}
             <li>
@@ -57,9 +57,9 @@ export default function Header() {
 function SocialIcons() {
   return (
     <div className="flex gap-x-4">
-      {/* Twitter icon */}
+      {/* LinkedIn icon */}
       <a
-        href="https://twitter.com/Jordan_Thirkle"
+        href="https://www.linkedin.com/in/jos%C3%A9-ram%C3%B3n-h-572a86234/"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -67,7 +67,7 @@ function SocialIcons() {
       </a>
       {/* GitHub icon */}
       <a
-        href="https://github.com/jordan-thirkle"
+        href="https://github.com/Joserra13"
         target="_blank"
         rel="noopener noreferrer"
       >
