@@ -7,7 +7,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 // Define the Header component
 export default function Header() {
   return (
-    <header className="text-white py-4 sticky top-0 z-50 font-[family-name:var(--font-geist-sans)]">
+    <header className="text-white py-4 sticky top-0 z-50 font-[family-name:var(--font-geist-sans)] h-32">
       {/* Header container */}
       <div className="container mx-auto px-4 flex justify-center items-center md:justify-between relative">
         {/* Website title */}
