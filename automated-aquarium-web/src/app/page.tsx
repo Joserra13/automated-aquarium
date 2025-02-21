@@ -110,7 +110,7 @@ export default function Home() {
           />
           
           This website is thought to help anyone who wants to build a project like this.
-          Please, feel free to share it with your friends and social media.
+          Please, feel free to share your milestones to your favourite social media and tag us.
 
           <div className="flex gap-4 items-center flex-col sm:flex-row">
             <a
