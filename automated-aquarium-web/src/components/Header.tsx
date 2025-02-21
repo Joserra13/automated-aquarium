@@ -13,7 +13,7 @@ export default function Header() {
       <div className="container mx-auto px-4 flex justify-center items-center md:justify-between relative">
         {/* Website title with icon */}
         <Link href="/" className="flex items-center gap-2">
-            <Image src="/main-icon.svg" alt="Main Icon" width={32} height={32} />
+            <Image src="/automated-aquarium/main-icon.svg" alt="Main Icon" width={32} height={32} />
             <h1 className="text-xl font-semibold">automatedAquarium</h1>
         </Link>
         {/* Navigation menu */}
