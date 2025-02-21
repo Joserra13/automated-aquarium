@@ -3,6 +3,7 @@
 // Import necessary modules
 import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import Image from 'next/image';
 
 // Define the Header component
 export default function Header() {
@@ -10,8 +11,11 @@ export default function Header() {
     <header className="text-white py-4 sticky top-0 z-50 font-[family-name:var(--font-geist-sans)] h-32">
       {/* Header container */}
       <div className="container mx-auto px-4 flex justify-center items-center md:justify-between relative">
-        {/* Website title */}
-        <h1 className="text-xl font-semibold">          automatedAquarium        </h1>
+        {/* Website title with icon */}
+        <Link href="/" className="flex items-center gap-2">
+            <Image src="/main-icon.svg" alt="Main Icon" width={32} height={32} />
+            <h1 className="text-xl font-semibold">automatedAquarium</h1>
+        </Link>
         {/* Navigation menu */}
         <nav className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
           <ul className="flex gap-x-6">
@@ -26,7 +30,7 @@ export default function Header() {
                 About
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/portfolio" className="hover:text-gray-300">
                 Portfolio
               </Link>
@@ -35,7 +39,7 @@ export default function Header() {
               <Link href="/blog" className="hover:text-gray-300">
                 Blog
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/contact" className="hover:text-gray-300">
                 Contact
