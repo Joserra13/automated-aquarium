@@ -19,3 +19,8 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.common-width {
+  width: 100%;
+  text-align: center;
+}
