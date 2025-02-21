@@ -24,3 +24,10 @@ body {
   width: 100%;
   text-align: center;
 }
+
+.common-height {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}

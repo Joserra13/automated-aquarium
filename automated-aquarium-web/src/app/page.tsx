@@ -22,19 +22,18 @@ export default function Home() {
           </h1>
         </div>
       </div>
-      <main className="flex flex-row gap-8 row-start-2 items-center sm:items-center mt-32">
-        <div className="flex flex-col gap-4 items-center bg-transparent text-sm py-4 px-4 border border-blue-500 rounded-lg font-[family-name:var(--font-geist-mono)] common-width">
-          
+      <main className="flex flex-row gap-8 row-start-2 items-stretch sm:items-stretch mt-32 font-[family-name:var(--font-geist-mono)]">
+        <div className="flex flex-col gap-4 items-center bg-transparent text-sm py-4 px-4 border border-blue-500 rounded-lg common-height common-width">
           <Image
             className="dark:invert"
             src="/code.svg"
-            alt="Next.js logo"
+            alt="code icon"
             width={100}
             height={100}
             priority
-            />
+          />
           
-          This is a side project to improve my skills in software development.
+          This Automated Aquarium is a side project involving different technologies where the main area is<br/>Internet of Things (IoT).
 
           <div className="flex gap-4 items-center flex-col sm:flex-row">
             <a
@@ -53,7 +52,7 @@ export default function Home() {
               Deploy now
             </a>
             <a
-              className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+              className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-blue-700 hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
               target="_blank"
               rel="noopener noreferrer"
@@ -62,25 +61,17 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <div className="flex flex-col gap-4 items-center bg-transparent text-sm py-4 px-4 border border-blue-500 rounded-lg common-width">
+        <div className="flex flex-col gap-4 items-center bg-transparent text-sm py-4 px-4 border border-blue-500 rounded-lg common-height common-width">
           <Image
             className="dark:invert"
-            src="/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
+            src="/in-work.svg"
+            alt="In work icon"
+            width={100}
+            height={100}
             priority
           />
-          <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-            <li className="mb-2">
-              Get started by editing{" "}
-              <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-                src/app/page.tsx
-              </code>
-              .
-            </li>
-            <li>Save and see your changes instantly.</li>
-          </ol>
+          
+          You will be able to keep track of the progress of this project and see updates as new features are added.<br />Stay tuned for more exciting developments!
 
           <div className="flex gap-4 items-center flex-col sm:flex-row">
             <a
@@ -99,7 +90,7 @@ export default function Home() {
               Deploy now
             </a>
             <a
-              className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+              className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-blue-700 hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
               target="_blank"
               rel="noopener noreferrer"
@@ -108,25 +99,18 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <div className="flex flex-col gap-4 items-center bg-transparent text-sm py-4 px-4 border border-blue-500 rounded-lg common-width">
+        <div className="flex flex-col gap-4 items-center bg-transparent text-sm py-4 px-4 border border-blue-500 rounded-lg common-height common-width">
           <Image
             className="dark:invert"
-            src="/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
+            src="/share.svg"
+            alt="In work icon"
+            width={100}
+            height={100}
             priority
           />
-          <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-            <li className="mb-2">
-              Get started by editing{" "}
-              <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-                src/app/page.tsx
-              </code>
-              .
-            </li>
-            <li>Save and see your changes instantly.</li>
-          </ol>
+          
+          This website is thought to help anyone who wants to build a project like this.
+          Please, feel free to share it with your friends and social media.
 
           <div className="flex gap-4 items-center flex-col sm:flex-row">
             <a
@@ -145,7 +129,7 @@ export default function Home() {
               Deploy now
             </a>
             <a
-              className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+              className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-blue-700 hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
               target="_blank"
               rel="noopener noreferrer"
