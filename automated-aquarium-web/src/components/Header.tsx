@@ -71,7 +71,7 @@ function SocialIcons() {
       </a>
       {/* GitHub icon */}
       <a
-        href="https://github.com/Joserra13"
+        href="https://github.com/Joserra13/automated-aquarium"
         target="_blank"
         rel="noopener noreferrer"
       >
