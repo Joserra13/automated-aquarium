@@ -35,7 +35,7 @@ export default function Home() {
           
           This Automated Aquarium is a side project involving different technologies where the main area is<br/>Internet of Things (IoT).
 
-          <div className="flex gap-4 items-center flex-col sm:flex-row">
+          {/* <div className="flex gap-4 items-center flex-col sm:flex-row">
             <a
               className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
               href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
@@ -59,7 +59,7 @@ export default function Home() {
             >
               Read our docs
             </a>
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-col gap-4 items-center bg-transparent text-sm py-4 px-4 border border-blue-500 rounded-lg common-height common-width">
           <Image
@@ -73,7 +73,7 @@ export default function Home() {
           
           You will be able to keep track of the progress of this project and see updates as new features are added.<br />Stay tuned for more exciting developments!
 
-          <div className="flex gap-4 items-center flex-col sm:flex-row">
+          {/* <div className="flex gap-4 items-center flex-col sm:flex-row">
             <a
               className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
               href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
@@ -97,7 +97,7 @@ export default function Home() {
             >
               Read our docs
             </a>
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-col gap-4 items-center bg-transparent text-sm py-4 px-4 border border-blue-500 rounded-lg common-height common-width">
           <Image
@@ -112,7 +112,7 @@ export default function Home() {
           This website is thought to help anyone who wants to build a project like this.
           Please, feel free to share your milestones to your favourite social media and tag us.
 
-          <div className="flex gap-4 items-center flex-col sm:flex-row">
+          {/* <div className="flex gap-4 items-center flex-col sm:flex-row">
             <a
               className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
               href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
@@ -136,7 +136,7 @@ export default function Home() {
             >
               Read our docs
             </a>
-          </div>
+          </div> */}
         </div>
       </main>
     </div>
