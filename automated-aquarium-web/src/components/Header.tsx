@@ -34,12 +34,12 @@ export default function Header() {
               <Link href="/portfolio" className="hover:text-gray-300">
                 Portfolio
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/blog" className="hover:text-gray-300">
                 Blog
               </Link>
-            </li> */}
+            </li>
             <li>
               <Link href="/contact" className="hover:text-gray-300">
                 Contact
