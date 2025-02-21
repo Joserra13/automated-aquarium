@@ -6,7 +6,7 @@ export default function Home() {
       <div
         className="flex flex-col gap-4 items-center justify-center text-center sm:text-left"
         style={{
-          backgroundImage: "url('/welcomePicture.jpg')",
+          backgroundImage: "url('/automated-aquarium/welcomePicture.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           width: "100%",
