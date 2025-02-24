@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       return Response.json({ error: 'All fields are required' }, { status: 400 });
     }
 
-    const { data, error } = await resend.emails.send({
+    const {/* data,*/ error } = await resend.emails.send({
       from: 'AutomatedAquarium <onboarding@resend.dev>',
       to: ['joserra013@gmail.com'],
       subject: 'Hello world',
