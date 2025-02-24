@@ -38,6 +38,9 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./automated-aquarium-web/out
+    
+    env:
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
 
   deploy:
     environment:
