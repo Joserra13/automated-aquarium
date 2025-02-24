@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import Form from "./form";
 
 export default function Contact() {
   return (
@@ -19,29 +20,7 @@ export default function Contact() {
       <main className="flex-1 flex-col gap-8 row-start-2 items-center sm:items-start">
         <div className="flex flex-col gap-4 items-center">
           <h2 className="text-xl font-semibold">We'd love to hear from you!</h2>
-          <form className="flex flex-col gap-4 w-full max-w-md">
-            <input
-              type="text"
-              placeholder="Your Name"
-              className="p-2 rounded border border-gray-300"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="p-2 rounded border border-gray-300"
-            />
-            <textarea
-              placeholder="Your Message"
-              className="p-2 rounded border border-gray-300"
-              rows={5}
-            />
-            <button
-              type="submit"
-              className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            >
-              Send Message
-            </button>
-          </form>
+          <Form />
         </div>
       </main>
     </div>

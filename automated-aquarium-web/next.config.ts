@@ -18,7 +18,8 @@ const nextConfig: NextConfig = {
   env: {
     // add the package.json version and git hash to the environment
     APP_VERSION: pkg.version,
-    COMMIT_HASH: commitHash
+    COMMIT_HASH: commitHash,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
   },
 };
 
