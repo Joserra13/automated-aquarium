@@ -13,13 +13,18 @@ export default function Contact() {
         />
 
         {/* Content Centered */}
-        <div className="relative z-10 text-white text-center p-8 rounded" style={{ backgroundColor: "rgba(17, 24, 39, 0.75)" }}>
+        <div
+          className="relative z-10 text-white text-center p-8 rounded"
+          style={{ backgroundColor: "rgba(17, 24, 39, 0.75)" }}
+        >
           <h1 className="text-4xl font-semibold">Contact Us</h1>
         </div>
       </main>
       <main className="flex-1 flex-col gap-8 row-start-2 items-center sm:items-start">
         <div className="flex flex-col gap-4 items-center">
           <h2 className="text-xl font-semibold">We'd love to hear from you!</h2>
+          <h3 hidden={true}>Message sent!</h3>
+          <h3 hidden={true}>Error sending message!</h3>
           <Form />
         </div>
       </main>

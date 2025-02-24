@@ -6,17 +6,20 @@ export default function contactForm() {
         type="text"
         placeholder="Your Name"
         name="firstName"
+        required
         className="p-2 rounded border border-gray-300"
       />
       <input
         type="email"
         placeholder="Your Email"
         name="email"
+        required
         className="p-2 rounded border border-gray-300"
       />
       <textarea
         placeholder="Your Message"
         name="body"
+        required
         className="p-2 rounded border border-gray-300"
         rows={5}
       />
