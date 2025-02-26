@@ -32,7 +32,7 @@ export default function Form({
         setLoading(false);
       }
     } catch (error) {
-      // console.error("Error:", error);
+      console.warn("Error:", error);
     }
   };
 
