@@ -13,10 +13,10 @@ export async function POST(request: Request) {
     const body = formData.get('body') as string;
 
     if (!firstName || !email || !body) {
-      return Response.json({ error: 'All fields are required' }, { status: 400 });
+      return NextResponse.json({ success: false, error: 'All fields are required' }, { status: 400 });
     }
 
-    const {/* data,*/ error } = await resend.emails.send({
+    const { /*data,*/ error } = await resend.emails.send({
       from: 'AutomatedAquarium <onboarding@resend.dev>',
       to: ['joserra013@gmail.com'],
       subject: 'Hello world',
@@ -24,12 +24,12 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      return NextResponse.redirect(new URL('/automated-aquarium/contact?sent='+error, request.url));
-      Response.json({ error: 'Failed to send email\n' + error }, { status: 500 });
+      return NextResponse.json({ success: false, error: error.message || 'Failed to send email' }, { status: 500 });
     }
 
-    return NextResponse.redirect(new URL('/automated-aquarium/contact?sent=true', request.url));
+    return NextResponse.json({ success: true });
+
   } catch (error) {
-    return NextResponse.redirect(new URL('/automated-aquarium/contact?sent='+error, request.url));
+    return NextResponse.json({ success: false, error: 'Unexpected error occurred' }, { status: 500 });
   }
 }
