@@ -30,6 +30,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
 
   } catch (error) {
-    return NextResponse.json({ success: false, error: 'Unexpected error occurred' }, { status: 500 });
+    return NextResponse.json({ success: false, error: error.message || 'Unexpected error occurred' }, { status: 500 });
   }
 }
