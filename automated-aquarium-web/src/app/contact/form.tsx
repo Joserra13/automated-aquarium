@@ -46,20 +46,20 @@ export default function Form({
         placeholder="Your Name"
         name="firstName"
         required
-        className="p-2 rounded border border-gray-300"
+        className="p-2 rounded border border-gray-300 text-black"
       />
       <input
         type="email"
         placeholder="Your Email"
         name="email"
         required
-        className="p-2 rounded border border-gray-300"
+        className="p-2 rounded border border-gray-300 text-black"
       />
       <textarea
         placeholder="Your Message"
         name="body"
         required
-        className="p-2 rounded border border-gray-300"
+        className="p-2 rounded border border-gray-300 text-black"
         rows={5}
       />
       <button
