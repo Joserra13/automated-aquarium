@@ -1,5 +1,5 @@
 // app/header.tsx
-"use client"
+"use client";
 // Import necessary modules
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
@@ -34,13 +34,8 @@ export default function Header() {
               </Link>
             </li>
             {/* <li>
-              <Link href="/about" className="hover:text-gray-300">
-                About
-              </Link>
-            </li> */}
-            {/* <li>
-              <Link href="/portfolio" className="hover:text-gray-300">
-                Portfolio
+              <Link href="/streaming" className="hover:text-gray-300">
+                Streaming
               </Link>
             </li> */}
             {/* <li>
@@ -48,6 +43,11 @@ export default function Header() {
                 Blog
               </Link>
             </li> */}
+            <li>
+              <Link href="/about" className="hover:text-gray-300">
+                About
+              </Link>
+            </li>
             <li>
               <Link href="/contact" className="hover:text-gray-300">
                 Contact
@@ -61,9 +61,7 @@ export default function Header() {
         </div>
         {/* Add Mobile Navigation Toggle Here */}
         <div className="md:hidden">
-          <button
-            onClick={() => setIsMobileNavVisible(!isMobileNavVisible)}
-          >
+          <button onClick={() => setIsMobileNavVisible(!isMobileNavVisible)}>
             <svg
               className="w-6 h-6"
               fill="none"
@@ -80,28 +78,38 @@ export default function Header() {
             </svg>
           </button>
         </div>
-        <nav id="mobile-nav" className={`md:hidden absolute top-full left-0 right-0 ${isMobileNavVisible ? '' : 'hidden'} bg-gray-800 rounded-lg p-4`}>
+        <nav
+          id="mobile-nav"
+          className={`md:hidden absolute top-full left-0 right-0 ${
+            isMobileNavVisible ? "" : "hidden"
+          } bg-gray-800 rounded-lg p-4`}
+        >
           <ul className="flex flex-col gap-y-4 mt-4">
             <li>
               <Link href="/" className="hover:text-gray-300">
                 Home
               </Link>
             </li>
-            {/* <li>
+            <li>
               <Link href="/about" className="hover:text-gray-300">
-          About
+                About
               </Link>
-            </li> */}
+            </li>
             {/* <li>
-              <Link href="/portfolio" className="hover:text-gray-300">
-          Portfolio
+              <Link href="/streaming" className="hover:text-gray-300">
+                Streaming
               </Link>
             </li> */}
             {/* <li>
               <Link href="/blog" className="hover:text-gray-300">
-          Blog
+                Blog
               </Link>
             </li> */}
+            <li>
+              <Link href="/blog" className="hover:text-gray-300">
+                About
+              </Link>
+            </li>
             <li>
               <Link href="/contact" className="hover:text-gray-300">
                 Contact
