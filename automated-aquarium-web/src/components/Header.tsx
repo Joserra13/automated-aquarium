@@ -11,7 +11,7 @@ export default function Header() {
   const [isMobileNavVisible, setIsMobileNavVisible] = useState(false);
 
   return (
-    <header className="text-white py-4 sticky top-0 z-50 font-[family-name:var(--font-geist-sans)] h-32">
+    <header className="text-white py-4 sticky top-0 z-50 font-[family-name:var(--font-geist-sans)] bg-gray-900">
       {/* Header container */}
       <div className="container mx-auto px-4 flex justify-center items-center md:justify-between relative">
         {/* Website title with icon */}
