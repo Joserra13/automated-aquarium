@@ -34,6 +34,15 @@ export default function Form({
     } catch (error) {
       console.warn("Error:", error);
     }
+
+    try{
+      await fetch("/automated-aquarium/api/store", {
+        method: "POST",
+        body: formData,
+      });
+    } catch (error) {
+      console.warn("Error:", error);
+    }
   };
 
   return (
