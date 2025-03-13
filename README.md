@@ -21,7 +21,9 @@ This project is complemented by a website built using Next.js. The website serve
 For more details and to get started with the web interface, visit the [automated-aquarium-web](https://github.com/Joserra13/automated-aquarium-web) repository.
 
 <p align="center">
+  <a href="https://github.com/Joserra13/automated-aquarium-web">
   <img src="https://img.shields.io/github/package-json/v/Joserra13/automated-aquarium-web" alt="GitHub package.json version">
+  </a>
 </p>
 
 ![AutomatedAquariumWebsite](./docs/graphics/AutomatedAquariumWebsite.jpg)
