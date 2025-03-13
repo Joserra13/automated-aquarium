@@ -7,3 +7,15 @@ The Automated Aquarium project aims to transform a traditional aquarium into a s
 A comprehensive guide with documentation links will be provided to help you set up and maintain your automated aquarium.
 
 ![Architecture](docs/graphics/Overview.jpg)
+
+## Automated Aquarium Website
+
+This project is complemented by a website built using Next.js. The website serves as the user interface for monitoring and controlling your automated aquarium.
+
+[![Next JS](https://img.shields.io/badge/automated--aquarium--web-black?style=for-the-badge&logo=next.js&logoColor=white)](https://automated-aquarium.vercel.app/)
+
+For more details and to get started with the web interface, visit the [automated-aquarium-web](https://github.com/Joserra13/automated-aquarium-web) repository.
+
+![GitHub package.json version](https://img.shields.io/github/package-json/v/Joserra13/automated-aquarium-web)
+
+![AutomatedAquariumWebsite](./docs/graphics/AutomatedAquariumWebsite.jpg)
