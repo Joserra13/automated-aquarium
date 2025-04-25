@@ -28,4 +28,4 @@ For more details and to get started with the web interface, visit the [automated
   </a>
 </p>
 
-![AutomatedAquariumWebsite](./docs/graphics/AutomatedAquariumWebsite.jpg)
+[![AutomatedAquariumWebsite](./docs/graphics/AutomatedAquariumWebsite.jpg)](https://automated-aquarium.vercel.app)
