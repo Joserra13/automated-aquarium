@@ -5,6 +5,9 @@
 
 Some SG90 servos can only rotate 180 degrees. Since this was the case of the one I own, I needed to perform some modifications into the hardware to convert it into a continuous movement servo.
 
+> [!WARNING]  
+> This guide is provided for informational purposes only. Modifying a servo involves risks, including potential damage to your equipment or injury. Proceed at your own risk. I take no responsibility for any harm, damage, or loss resulting from the use or misuse of this information.
+
 ## How can I hack it?
 
 1. Disassemble servo.
