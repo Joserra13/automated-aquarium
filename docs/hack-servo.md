@@ -7,9 +7,9 @@ Some SG90 servos can only rotate 180 degrees. Since this was the case of the one
 
 ## How can I hack it?
 
-1. Disassemble servo
+1. Disassemble servo.
 
-2. Remove the ending part of the gear shown below
+2. Remove the ending part of the gear shown below:
 
     ![hack-servo](./graphics/remove-stop-servo.png)
 
@@ -36,6 +36,14 @@ The potentiometer should me modified so when **my_servo.write(90)** is executed,
         my_servo.write(180)  # Move the servo counterclockwise
         time.sleep_ms(1000)  
     ```
+
+4. Glue the potentiometer to secure a fixed position and prevent modifications due to vibrations:
+    
+    ![Glue potentiometer](./graphics/glue-potentiometer.png)
+
+5. Test movement again to check if the servo works as intended.
+
+6. Assemble potentiometer again.
 
 ## How does it work?
 
