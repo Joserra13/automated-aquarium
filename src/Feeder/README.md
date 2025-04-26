@@ -39,9 +39,13 @@ Since some pieces are needed to build the feeder, you can print the different pa
 
 ## Code
 
+First of all you need to connect the Raspberry Pi pico to your IDE. You can do so by following the original [documentation](https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/3) from Raspberry Pi.
+
 To run the code, you will need the **Servo** object from the **micropython-servo** library:
 
 ![Add package](../../docs/graphics/micropython-servo-lib.png)
+
+Once, the package is installed, copy the [code](./main.py) and run the script in the Thonny IDE.
 
 ## References
 
