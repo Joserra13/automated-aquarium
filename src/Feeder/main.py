@@ -1,5 +1,4 @@
 # Feeder v1.0
-
 import time
 from servo import Servo
 
