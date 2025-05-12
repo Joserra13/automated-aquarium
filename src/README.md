@@ -6,4 +6,4 @@ This folder contains all the important information of the components that run th
 
 ## List of components
 
-- [Automatic Feeder](./Feeder/)
+- [Automatic Feeder](./RaspberryPi-Pico-W/Feeder/)
