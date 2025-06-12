@@ -36,7 +36,7 @@ def getToken():
     return idToken
 
 def readFirebase(idToken):
-    r = urequests.get("https://firestore.googleapis.com/v1/projects/automatedaquarium-462617/databases/(default)/documents/fishFeeder?key="+credentials.FIREBASE_API_KEY,headers={'Authorization': 'Bearer ' + idToken, })
+    r = urequests.get(f"https://firestore.googleapis.com/v1/projects/{credentials.FIREBASE_PROJECT_ID}/databases/(default)/documents/fishFeeder?key="+credentials.FIREBASE_API_KEY,headers={'Authorization': 'Bearer ' + idToken, })
     data = ujson.loads(r.content)["documents"][0]["fields"]
     r.close()
     return data
@@ -46,7 +46,7 @@ def writeFirebase(idToken, valueFeed, valueCount):
       "writes": [
         {
           "update": {
-            "name": "projects/automatedaquarium-462617/databases/(default)/documents/fishFeeder/data",
+            "name": "projects/"+ credentials.FIREBASE_PROJECT_ID +"/databases/(default)/documents/fishFeeder/data",
             "fields": {
               "feednow": { "booleanValue": valueFeed },
               "count": { "integerValue": valueCount}
@@ -58,7 +58,7 @@ def writeFirebase(idToken, valueFeed, valueCount):
         }
       ]
     })
-    r = urequests.post("https://firestore.googleapis.com/v1/projects/automatedaquarium-462617/databases/(default)/documents:commit?key="+credentials.FIREBASE_API_KEY,headers={'Authorization': 'Bearer ' + idToken, }, data = post_data)
+    r = urequests.post(f"https://firestore.googleapis.com/v1/projects/{credentials.FIREBASE_PROJECT_ID}/databases/(default)/documents:commit?key="+credentials.FIREBASE_API_KEY,headers={'Authorization': 'Bearer ' + idToken, }, data = post_data)
     r.close()
 
 
