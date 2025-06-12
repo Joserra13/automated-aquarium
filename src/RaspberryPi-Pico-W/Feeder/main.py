@@ -40,20 +40,20 @@ while True:
             if data["feednow"].get("booleanValue"):
                 
                 ## TODO: Set the correct movement and timing for the food ##
-                my_servo.write(0)    # Move the servo clockwise
-                time.sleep_ms(1000)  # Wait for 1 second
-
-                my_servo.write(90)   # Set the Servo to stop
-                time.sleep_ms(1000)  
-
-                my_servo.write(180)  # Move the servo counterclockwise
-                time.sleep_ms(1000)
-
-                my_servo.write(90)   # Set the Servo to stop
-                time.sleep_ms(1000)
+#                 my_servo.write(0)    # Move the servo clockwise
+#                 time.sleep_ms(1000)  # Wait for 1 second
+# 
+#                 my_servo.write(90)   # Set the Servo to stop
+#                 time.sleep_ms(1000)  
+# 
+#                 my_servo.write(180)  # Move the servo counterclockwise
+#                 time.sleep_ms(1000)
+# 
+#                 my_servo.write(90)   # Set the Servo to stop
+#                 time.sleep_ms(1000)
                 
                 print("Update values in Firebase")
-                utils.writeFirebase(0, data["count"].get("integerValue")+1)
+                utils.writeFirebase(idToken, False, int(data["count"].get("integerValue"))+1)
                 
         except ValueError:
             print("Syntax error in JSON")
