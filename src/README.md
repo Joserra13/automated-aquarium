@@ -2,8 +2,8 @@
 
 ## Structure
 
-This folder contains all the important information of the components that run the Automated Aquarium. Items will be added after they are being developed.
+This directory contains detailed information about the components that power the Automated Aquarium system. Additional items will be included as they are developed.
 
-## List of components
+## List of Components
 
 - [Automatic Feeder](./RaspberryPi-Pico-W/Feeder/)
