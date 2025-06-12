@@ -47,6 +47,7 @@ To run the code, you will need the **Servo** object from the **micropython-servo
 
 Once, the package is installed, copy the [main.py](./main.py), [credentials.py](./credentials.py.example) (you need to remove the .example ending) and [utils.py](./utils.py) files and run main.py in the Thonny IDE.
 
+> [!WARNING]  
 >In order to find the Firebase keys for your **credentials.py** file, feel free to follow the following [guide](../../../docs/firebase.md). Apart from the Firebase keys, you need to write the WiFi SSID and password in that file.
 
 ## References
