@@ -1,4 +1,4 @@
-# Feeder v2.0
+# Feeder v2.1
 import time
 from servo import Servo
 import utils
@@ -7,17 +7,24 @@ import utils
 # GPIO pin connected the PWM wire of the servo
 my_servo = Servo(pin_id=28)
 
-TIMEOUT_GET_TOKEN_s = 3540
-TIMEOUT_READ_VALUES_s = 5
-TIMEOUT_READ_SCHEDULE_s = 600
+TIMEOUTS = {
+    "token": 3540,
+    "values": 5,
+    "schedule": 600
+}
 
-dateFromLastToken = time.time()-3600
-dateFromLastQuery = time.time()-2
-dateFromLastScheduleCheck = time.time()-600
+last_actions = {
+    "token": time.time() - 3600,
+    "values": time.time() - 2,
+    "schedule": time.time() - 600
+}
 
 #Variable to store the scheduledates
-schedule = [0,0,0]
-scheduleEnabled = [False, False, False]
+schedules = [
+    {"time": 0, "enabled": False},
+    {"time": 0, "enabled": False},
+    {"time": 0, "enabled": False}
+]
 
 utils.connect()
 
@@ -54,27 +61,27 @@ while True:
     current_time = time.localtime()
     current_seconds = current_time[3] * 3600 + current_time[4] * 60 + current_time[5]
 
-    if((current_seconds == schedule[0] and scheduleEnabled[0]) or (current_seconds == schedule[1] and scheduleEnabled[1]) or (current_seconds == schedule[2] and scheduleEnabled[2])):
+    if any(s["enabled"] and current_seconds == s["time"] for s in schedules):
         #Move the servo to feed
         feedTheFish()
     
-    if((time.time() - dateFromLastToken) > TIMEOUT_GET_TOKEN_s):    
+    if (time.time() - last_actions["token"]) > TIMEOUTS["token"]:    
         #Need to ask for a token
         print("Ask for token")
         try:
             idToken = utils.getToken()
             print(idToken)
-            dateFromLastToken = time.time()
-        except:
-            print(f"Error getting the token");
+            last_actions["token"] = time.time()
+        except Exception as e:
+            print(f"Error getting the token: {e}")
         
-    if((time.time() - dateFromLastQuery) > TIMEOUT_READ_VALUES_s):
+    if(time.time() - last_actions["values"]) > TIMEOUTS["values"]:
         #Query the value
         try:
             print(f"\nRead values")
             data = utils.readFirebase(idToken)
             print(f"feednow: {data["feednow"].get("booleanValue")}")
-            dateFromLastQuery = time.time()
+            last_actions["values"] = time.time()
             
             if data["feednow"].get("booleanValue"):
                 
@@ -88,28 +95,24 @@ while True:
         except:
             print("Unknown error")
             
-    if((time.time() - dateFromLastScheduleCheck) > TIMEOUT_READ_SCHEDULE_s):
+    if (time.time() - last_actions["schedule"]) > TIMEOUTS["schedule"]:
         #Read if schedules are enabled
         try:
             print(f"\nRead Schedule values")
             data = utils.readFirebase(idToken)
             
             for x in range(3):
-                varName = "schedule" + str(x)
-                if data[varName + "Enabled"].get("booleanValue"):
-                    scheduleEnabled[x] = True
-                    schedule[x] = time_string_to_seconds(data[varName].get("stringValue"))                  
-                else:
-                    scheduleEnabled[x] = False
-                    schedule[x] = ""
+                varName = f"schedule{x}"
+                schedule_enabled = data[f"{varName}Enabled"].get("booleanValue")
+                schedules[x]["enabled"] = schedule_enabled
                 
-                print("scheduleEnabled[x], schedule[x]:")
-                print(scheduleEnabled[x])
-                print(schedule[x])
+                if schedule_enabled:
+                    schedules[x]["time"] = time_string_to_seconds(data[varName].get("stringValue"))
+                
+                print(f"Schedule {x}: {schedules[x]}")
             
-            dateFromLastScheduleCheck = time.time()
-        except ValueError:
-            print("Syntax error in JSON")
-        except:
-            print("Unknown error in Schedule")
+            last_actions["schedule"] = time.time()
+        except Exception as e:
+            print(f"Error reading schedule: {e}")
             
+
