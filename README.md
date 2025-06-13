@@ -15,7 +15,7 @@ Comprehensive documentation and setup guides are available to assist you in conf
 A dedicated website, built with Next.js, serves as the user interface for monitoring and controlling your automated aquarium.
 
 <p align="center">
-  <a href="https://automated-aquarium.vercel.app/">
+  <a href="https://automated-aquarium.com">
     <img src="https://img.shields.io/badge/automated--aquarium--web-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next JS">
   </a>
 </p>
@@ -28,4 +28,4 @@ For more information and to get started with the web interface, visit the [autom
   </a>
 </p>
 
-[![AutomatedAquariumWebsite](./docs/graphics/AutomatedAquariumWebsite.jpg)](https://automated-aquarium.vercel.app)
+[![AutomatedAquariumWebsite](./docs/graphics/AutomatedAquariumWebsite.jpg)](https://automated-aquarium.com)
