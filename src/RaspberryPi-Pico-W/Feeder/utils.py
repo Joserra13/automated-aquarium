@@ -92,17 +92,9 @@ C = 0.0000000874371
 offset = 2
 
 def read_temperature(raw):
-    voltage = raw * 3.3 / 65535
+  voltage = raw / 65535.0 * 3.3
+  Rt = 10 * voltage / (3.3-voltage)
+  tempK = (1 / (1 / (273.15+25) + (math.log(Rt/10)) / 3950))
+  temp_c = float(tempK - 273.15)
 
-    if voltage <= 0 or voltage >= 3.3:
-        return None  # Out of range, likely disconnected or shorted
-
-    # NTC resistancer
-    r_thermistor = R_FIXED * (3.3 / voltage - 1)
-
-    # Steinhart-Hart equation
-    ln_r = log(r_thermistor)
-    temp_k = 1.0 / (A + B * ln_r + C * ln_r**3)
-    temp_c = temp_k - 273.15 - offset
-
-    return temp_c
+  return temp_c
