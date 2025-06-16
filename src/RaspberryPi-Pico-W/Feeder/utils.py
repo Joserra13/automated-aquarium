@@ -82,19 +82,10 @@ def writeFirebase(idToken, valueFeed=None, valueCount=None, valueTemp=None):
     r = urequests.post(f"https://firestore.googleapis.com/v1/projects/{credentials.FIREBASE_PROJECT_ID}/databases/(default)/documents:commit?key="+credentials.FIREBASE_API_KEY,headers={'Authorization': 'Bearer ' + idToken, }, data = post_data)
     r.close()
 
-R_FIXED = 10000        # 10kΩ pull-down resistor
-
-# Steinhart-Hart coefficients for typical 10k NTC
-A = 0.0011286691
-B = 0.0002341967
-C = 0.0000000874371
-
-offset = 2
-
 def read_temperature(raw):
   voltage = raw / 65535.0 * 3.3
   Rt = 10 * voltage / (3.3-voltage)
-  tempK = (1 / (1 / (273.15+25) + (math.log(Rt/10)) / 3950))
+  tempK = (1 / (1 / (273.15+25) + (log(Rt/10)) / 3950))
   temp_c = float(tempK - 273.15)
 
   return temp_c
