@@ -4,6 +4,7 @@ import socket
 import urequests
 import ujson
 import time
+from math import log
 
 def connect():
     #Connect to WLAN
@@ -41,24 +42,67 @@ def readFirebase(idToken):
     r.close()
     return data
 
-def writeFirebase(idToken, valueFeed, valueCount):
-    post_data = ujson.dumps({
-      "writes": [
-        {
-          "update": {
-            "name": "projects/"+ credentials.FIREBASE_PROJECT_ID +"/databases/(default)/documents/fishFeeder/data",
-            "fields": {
-              "feednow": { "booleanValue": valueFeed },
-              "count": { "integerValue": valueCount}
-            }
-          },
-          "updateMask": {
-            "fieldPaths": ["feednow", "count"]
-          }
-        }
-      ]
-    })
+def writeFirebase(idToken, valueFeed=None, valueCount=None, valueTemp=None):
+    
+    body=ujson.dumps({})
+    
+    if valueFeed is not None and valueCount is not None:
+        body = ujson.dumps({
+            "writes": [
+            {
+              "update": {
+                "name": "projects/"+ credentials.FIREBASE_PROJECT_ID +"/databases/(default)/documents/fishFeeder/data",
+                "fields": {
+                  "feednow": { "booleanValue": valueFeed },
+                  "count": { "integerValue": valueCount}
+                }
+              },
+              "updateMask": {
+                "fieldPaths": ["feednow", "count"]
+              }
+            }]
+        })
+    elif valueTemp is not None:
+        body = ujson.dumps({
+            "writes": [
+            {
+              "update": {
+                "name": "projects/"+ credentials.FIREBASE_PROJECT_ID +"/databases/(default)/documents/fishFeeder/data",
+                "fields": {
+                  "waterTemperature": { "doubleValue": valueTemp }
+                }
+              },
+              "updateMask": {
+                "fieldPaths": ["waterTemperature"]
+              }
+            }]
+        })
+    
+    post_data = body
     r = urequests.post(f"https://firestore.googleapis.com/v1/projects/{credentials.FIREBASE_PROJECT_ID}/databases/(default)/documents:commit?key="+credentials.FIREBASE_API_KEY,headers={'Authorization': 'Bearer ' + idToken, }, data = post_data)
     r.close()
 
+R_FIXED = 10000        # 10kΩ pull-down resistor
 
+# Steinhart-Hart coefficients for typical 10k NTC
+A = 0.0011286691
+B = 0.0002341967
+C = 0.0000000874371
+
+offset = 2
+
+def read_temperature(raw):
+    voltage = raw * 3.3 / 65535
+
+    if voltage <= 0 or voltage >= 3.3:
+        return None  # Out of range, likely disconnected or shorted
+
+    # NTC resistancer
+    r_thermistor = R_FIXED * (3.3 / voltage - 1)
+
+    # Steinhart-Hart equation
+    ln_r = log(r_thermistor)
+    temp_k = 1.0 / (A + B * ln_r + C * ln_r**3)
+    temp_c = temp_k - 273.15 - offset
+
+    return temp_c

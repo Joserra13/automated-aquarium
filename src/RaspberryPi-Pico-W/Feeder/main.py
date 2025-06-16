@@ -3,9 +3,15 @@ import time
 from servo import Servo
 import utils
 
+from machine import ADC
+
 # Create our Servo object, assigning the
 # GPIO pin connected the PWM wire of the servo
 my_servo = Servo(pin_id=28)
+
+# Thermistor constants
+ADC_PIN = 27           # GP27 = ADC1
+adc = ADC(ADC_PIN)
 
 TIMEOUTS = {
     "token": 3540,
@@ -44,17 +50,11 @@ def time_string_to_seconds(time_str):
 def feedTheFish():
     print("\nFeeding time!")
     ## TODO: Set the correct movement and timing for the food ##
-    # my_servo.write(0)    # Move the servo clockwise
+    my_servo.write(0)    # Move the servo clockwise
+    time.sleep_ms(2000)  # Wait for 1 second
+    
+    my_servo.write(90)    # Stop the servo
     time.sleep_ms(1000)  # Wait for 1 second
-
-    # my_servo.write(90)   # Set the Servo to stop
-    # time.sleep_ms(1000)  
-
-    # my_servo.write(180)  # Move the servo counterclockwise
-    # time.sleep_ms(1000)
-
-    # my_servo.write(90)   # Set the Servo to stop
-    # time.sleep_ms(1000)
 
 while True:
 
@@ -76,6 +76,11 @@ while True:
             print(f"Error getting the token: {e}")
         
     if(time.time() - last_actions["values"]) > TIMEOUTS["values"]:
+        
+        rawTemp = adc.read_u16()  # 16-bit ADC (0-65535)
+        
+        temp_c = utils.read_temperature(rawTemp)
+        
         #Query the value
         try:
             print(f"\nRead values")
@@ -88,7 +93,10 @@ while True:
                 feedTheFish()
                 
                 print("Update values in Firebase")
-                utils.writeFirebase(idToken, False, int(data["count"].get("integerValue"))+1)
+                utils.writeFirebase(idToken, valueFeed=False, valueCount=int(data["count"].get("integerValue"))+1)
+            
+            print(f"Update temp")
+            utils.writeFirebase(idToken, valueTemp=temp_c)                
                 
         except ValueError:
             print("Syntax error in JSON")
