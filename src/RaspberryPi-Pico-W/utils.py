@@ -1,6 +1,5 @@
 import credentials
 import network
-import socket
 import urequests
 import ujson
 import time

@@ -37,19 +37,6 @@ Several 3D-printed components are required to build the feeder. You can print th
 > [!NOTE]  
 > The original 3D files are from [CodersCafeTech](https://www.instructables.com/member/CodersCafeTech/) on [Instructables](https://www.instructables.com/Aquassist-DIY-Automatic-Fish-Feeder-With-Companion/).
 
-## Code
-
-First, connect the Raspberry Pi Pico W to your IDE by following the [official setup guide](https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/3).
-
-To run the code, you will need the **Servo** object from the **micropython-servo** library:
-
-![Add package](../../../docs/graphics/micropython-servo-lib.png)
-
-Once the package is installed, copy the [main.py](./main.py), [credentials.py.example](./credentials.py.example) (rename to `credentials.py`), and [utils.py](./utils.py) files to your Raspberry Pi Pico, and run `main.py` in Thonny IDE.
-
-> [!WARNING]  
-> To obtain the Firebase keys required for your `credentials.py` file, refer to the [Firebase setup guide](../../../docs/firebase.md). In addition to the Firebase keys, you must also provide your WiFi SSID and password in this file.
-
 ## References
 
 - Original concept by CodersCafeTech on [Instructables](https://www.instructables.com/Aquassist-DIY-Automatic-Fish-Feeder-With-Companion/).
