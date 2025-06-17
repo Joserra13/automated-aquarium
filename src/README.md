@@ -7,3 +7,4 @@ This directory contains detailed information about the components that power the
 ## List of Components
 
 - [Automatic Feeder](./RaspberryPi-Pico-W/Feeder/)
+- [Underwater thermistor](./RaspberryPi-Pico-W/Underwater%20Thermistor/)
