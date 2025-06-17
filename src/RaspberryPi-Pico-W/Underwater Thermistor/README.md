@@ -4,7 +4,7 @@
 
 Monitoring water temperature is crucial for maintaining a healthy aquatic environment. By adding a water thermistor to the project, you can accurately measure and track temperature changes in real time. This enables automated responses, such as activating heaters or sending alerts, ensuring optimal conditions for aquatic life and preventing potential issues caused by temperature fluctuations.
 
-![Add picture of it]()
+![Underwater thermistor](../../../docs/graphics/Underwater-thermistor.jpeg)
 
 ## Materials Needed
 
