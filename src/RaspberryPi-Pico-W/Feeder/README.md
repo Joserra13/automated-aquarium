@@ -37,6 +37,10 @@ Several 3D-printed components are required to build the feeder. You can print th
 > [!NOTE]  
 > The original 3D files are from [CodersCafeTech](https://www.instructables.com/member/CodersCafeTech/) on [Instructables](https://www.instructables.com/Aquassist-DIY-Automatic-Fish-Feeder-With-Companion/).
 
+## Code
+
+The code for this project is available under the [RaspberryPi-Pico-W](../) directory.
+
 ## References
 
 - Original concept by CodersCafeTech on [Instructables](https://www.instructables.com/Aquassist-DIY-Automatic-Fish-Feeder-With-Companion/).
