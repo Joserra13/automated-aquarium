@@ -3,6 +3,10 @@
 > [!WARNING]  
 > To obtain the Firebase keys required for your `credentials.py` file, refer to the [Firebase setup guide](../../../docs/firebase.md). In addition to the Firebase keys, you must also provide your WiFi SSID and password in this file.
 
+## Schematic
+
+![RaspberryPi-Pico-W-Schematic](../docs/graphics/RaspberryPi-Pico-schema.png)
+
 ## Code
 
 First, connect the Raspberry Pi Pico W to your IDE by following the [official setup guide](https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/3).

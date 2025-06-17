@@ -8,7 +8,3 @@ This directory contains detailed information about the components that power the
 
 - [Automatic Feeder](./RaspberryPi-Pico-W/Feeder/)
 - [Underwater thermistor](./RaspberryPi-Pico-W/Underwater%20Thermistor/)
-
-## Schematic
-
-![RaspberryPi-Pico-W-Schematic](../docs/graphics/RaspberryPi-Pico-schema.png)
