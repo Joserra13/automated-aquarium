@@ -5,7 +5,7 @@
 
 ## Schematic
 
-![RaspberryPi-Pico-W-Schematic](../docs/graphics/RaspberryPi-Pico-schema.png)
+![RaspberryPi-Pico-W-Schematic](../../docs/graphics/RaspberryPi-Pico-schema.png)
 
 ## Code
 
