@@ -1,4 +1,4 @@
-# Feeder v2.1
+# Feeder v3.0
 import time
 from servo import Servo
 import utils
@@ -10,8 +10,12 @@ from machine import ADC
 my_servo = Servo(pin_id=28)
 
 # Thermistor constants
-ADC_PIN = 27           # GP27 = ADC1
-adc = ADC(ADC_PIN)
+Thermistor_PIN = 27           # GP27 = ADC1
+thermistor = ADC(Thermistor_PIN)
+
+# WaterLevel constants
+WaterLevel_PIN = 26           # GP26 = ADC0
+water_level = ADC(WaterLevel_PIN)
 
 TIMEOUTS = {
     "token": 3540,
@@ -77,9 +81,11 @@ while True:
         
     if(time.time() - last_actions["values"]) > TIMEOUTS["values"]:
         
-        rawTemp = adc.read_u16()  # 16-bit ADC (0-65535)
+        rawTemp = thermistor.read_u16()  # 16-bit ADC (0-65535)
+        rawWaterLevel = water_level.read_u16()
         
         temp_c = utils.read_temperature(rawTemp)
+        waterLevel = utils.read_waterLevel(rawWaterLevel)
         
         #Query the value
         try:
@@ -96,7 +102,7 @@ while True:
                 utils.writeFirebase(idToken, valueFeed=False, valueCount=int(data["count"].get("integerValue"))+1)
             
             print(f"Update temp")
-            utils.writeFirebase(idToken, valueTemp=temp_c)                
+            utils.writeFirebase(idToken, valueTemp=temp_c, valueWaterLevel=waterLevel)                
                 
         except ValueError:
             print("Syntax error in JSON")
@@ -122,5 +128,3 @@ while True:
             last_actions["schedule"] = time.time()
         except Exception as e:
             print(f"Error reading schedule: {e}")
-            
-

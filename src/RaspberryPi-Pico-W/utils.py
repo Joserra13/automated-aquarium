@@ -41,7 +41,7 @@ def readFirebase(idToken):
     r.close()
     return data
 
-def writeFirebase(idToken, valueFeed=None, valueCount=None, valueTemp=None):
+def writeFirebase(idToken, valueFeed=None, valueCount=None, valueTemp=None, valueWaterLevel=None):
     
     body=ujson.dumps({})
     
@@ -61,18 +61,19 @@ def writeFirebase(idToken, valueFeed=None, valueCount=None, valueTemp=None):
               }
             }]
         })
-    elif valueTemp is not None:
+    elif valueTemp is not None and valueWaterLevel is not None:
         body = ujson.dumps({
             "writes": [
             {
               "update": {
                 "name": "projects/"+ credentials.FIREBASE_PROJECT_ID +"/databases/(default)/documents/fishFeeder/data",
                 "fields": {
-                  "waterTemperature": { "doubleValue": valueTemp }
+                  "waterTemperature": { "doubleValue": valueTemp },
+                  "waterLevel": { "doubleValue": valueWaterLevel }
                 }
               },
               "updateMask": {
-                "fieldPaths": ["waterTemperature"]
+                "fieldPaths": ["waterTemperature", "waterLevel"]
               }
             }]
         })
@@ -88,3 +89,12 @@ def read_temperature(raw):
   temp_c = float(tempK - 273.15)
 
   return temp_c
+
+def read_waterLevel(raw):
+    factor_16 = 3.3 / (65535)
+    voltage = raw * factor_16
+
+    #ToDo: Make the conversion to the number of liters and return the value
+    #For now, just return the voltage
+    
+    return voltage
