@@ -2,8 +2,10 @@
 import time
 from servo import Servo
 import utils
-
+from picozero import pico_led
 from machine import ADC
+
+pico_led.on()
 
 # Create our Servo object, assigning the
 # GPIO pin connected the PWM wire of the servo
