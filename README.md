@@ -29,3 +29,9 @@ For more information and to get started with the web interface, visit the [autom
 </p>
 
 [![AutomatedAquariumWebsite](./docs/graphics/AutomatedAquariumWebsite.jpg)](https://automated-aquarium.com)
+
+## Automated Aquarium Backend
+
+The server, built with node.js, which handles different services where I store data from the aquarium. 
+
+For more information and to get started with the backend of this project, visit the [automated-aquarium-backend](https://github.com/Joserra13/automated-aquarium-backend) repository.
