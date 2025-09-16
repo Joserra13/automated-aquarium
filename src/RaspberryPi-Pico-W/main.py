@@ -57,7 +57,7 @@ def feedTheFish():
     print("\nFeeding time!")
     ## TODO: Set the correct movement and timing for the food ##
     my_servo.write(0)    # Move the servo clockwise
-    time.sleep_ms(2000)  # Wait for 1 second
+    time.sleep_ms(750)  # Wait for 1 second
     
     my_servo.write(90)    # Stop the servo
     time.sleep_ms(1000)  # Wait for 1 second
@@ -130,3 +130,4 @@ while True:
             last_actions["schedule"] = time.time()
         except Exception as e:
             print(f"Error reading schedule: {e}")
+
