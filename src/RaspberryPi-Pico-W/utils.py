@@ -91,10 +91,7 @@ def read_temperature(raw):
   return temp_c
 
 def read_waterLevel(raw):
-    factor_16 = 3.3 / (65535)
+    factor_16 = 22.5 / (65535) #Liters = Max Analog value
     voltage = raw * factor_16
-
-    #ToDo: Make the conversion to the number of liters and return the value
-    #For now, just return the voltage
     
     return voltage
