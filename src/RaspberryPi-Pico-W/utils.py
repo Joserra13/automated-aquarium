@@ -36,51 +36,59 @@ def getToken():
     return idToken
 
 def readFirebase(idToken):
-    r = urequests.get(f"https://firestore.googleapis.com/v1/projects/{credentials.FIREBASE_PROJECT_ID}/databases/(default)/documents/fishFeeder?key="+credentials.FIREBASE_API_KEY,headers={'Authorization': 'Bearer ' + idToken, })
-    data = ujson.loads(r.content)["documents"][0]["fields"]
-    r.close()
+    try:
+      r = urequests.get(f"https://firestore.googleapis.com/v1/projects/{credentials.FIREBASE_PROJECT_ID}/databases/(default)/documents/fishFeeder?key="+credentials.FIREBASE_API_KEY,headers={'Authorization': 'Bearer ' + idToken, })
+      data = ujson.loads(r.content)["documents"][0]["fields"]
+    except Exception as e:
+      print("Error reading Firebase:", e)
+    finally:
+      r.close()
     return data
 
 def writeFirebase(idToken, valueFeed=None, valueCount=None, valueTemp=None, valueWaterLevel=None):
     
-    body=ujson.dumps({})
-    
-    if valueFeed is not None and valueCount is not None:
-        body = ujson.dumps({
-            "writes": [
-            {
-              "update": {
-                "name": "projects/"+ credentials.FIREBASE_PROJECT_ID +"/databases/(default)/documents/fishFeeder/data",
-                "fields": {
-                  "feednow": { "booleanValue": valueFeed },
-                  "count": { "integerValue": valueCount}
+    try:
+      body=ujson.dumps({})
+      
+      if valueFeed is not None and valueCount is not None:
+          body = ujson.dumps({
+              "writes": [
+              {
+                "update": {
+                  "name": "projects/"+ credentials.FIREBASE_PROJECT_ID +"/databases/(default)/documents/fishFeeder/data",
+                  "fields": {
+                    "feednow": { "booleanValue": valueFeed },
+                    "count": { "integerValue": valueCount}
+                  }
+                },
+                "updateMask": {
+                  "fieldPaths": ["feednow", "count"]
                 }
-              },
-              "updateMask": {
-                "fieldPaths": ["feednow", "count"]
-              }
-            }]
-        })
-    elif valueTemp is not None and valueWaterLevel is not None:
-        body = ujson.dumps({
-            "writes": [
-            {
-              "update": {
-                "name": "projects/"+ credentials.FIREBASE_PROJECT_ID +"/databases/(default)/documents/fishFeeder/data",
-                "fields": {
-                  "waterTemperature": { "doubleValue": valueTemp },
-                  "waterLevel": { "doubleValue": valueWaterLevel }
+              }]
+          })
+      elif valueTemp is not None and valueWaterLevel is not None:
+          body = ujson.dumps({
+              "writes": [
+              {
+                "update": {
+                  "name": "projects/"+ credentials.FIREBASE_PROJECT_ID +"/databases/(default)/documents/fishFeeder/data",
+                  "fields": {
+                    "waterTemperature": { "doubleValue": valueTemp },
+                    "waterLevel": { "doubleValue": valueWaterLevel }
+                  }
+                },
+                "updateMask": {
+                  "fieldPaths": ["waterTemperature", "waterLevel"]
                 }
-              },
-              "updateMask": {
-                "fieldPaths": ["waterTemperature", "waterLevel"]
-              }
-            }]
-        })
-    
-    post_data = body
-    r = urequests.post(f"https://firestore.googleapis.com/v1/projects/{credentials.FIREBASE_PROJECT_ID}/databases/(default)/documents:commit?key="+credentials.FIREBASE_API_KEY,headers={'Authorization': 'Bearer ' + idToken, }, data = post_data)
-    r.close()
+              }]
+          })
+      
+      post_data = body
+      r = urequests.post(f"https://firestore.googleapis.com/v1/projects/{credentials.FIREBASE_PROJECT_ID}/databases/(default)/documents:commit?key="+credentials.FIREBASE_API_KEY,headers={'Authorization': 'Bearer ' + idToken, }, data = post_data)
+    except Exception as e:
+      print("Error writing Firebase:", e)
+    finally:
+       r.close()
 
 def read_temperature(raw):
   voltage = raw / 65535.0 * 3.3
