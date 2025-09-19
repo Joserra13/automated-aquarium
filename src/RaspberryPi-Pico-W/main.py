@@ -73,7 +73,7 @@ while True:
     
     if (time.time() - last_actions["token"]) > TIMEOUTS["token"]:    
         #Need to ask for a token
-        print("Ask for token")
+        #print("Ask for token")
         try:
             idToken = utils.getToken()
             print(idToken)
@@ -88,26 +88,28 @@ while True:
         
         temp_c = utils.read_temperature(rawTemp)
         waterLevel = utils.read_waterLevel(rawWaterLevel)
+        #print(f"waterLevel {waterLevel}")
         
         #Query the value
         try:
             print(f"\nRead values")
             data = utils.readFirebase(idToken)
-            print(f"feednow: {data["feednow"].get("booleanValue")}")
+            #print(f"feednow: {data["feednow"].get("booleanValue")}")
             last_actions["values"] = time.time()
             
             if data["feednow"].get("booleanValue"):
                 
                 feedTheFish()
                 
-                print("Update values in Firebase")
+                #print("Update values in Firebase")
                 utils.writeFirebase(idToken, valueFeed=False, valueCount=int(data["count"].get("integerValue"))+1)
             
-            print(f"Update temp")
             utils.writeFirebase(idToken, valueTemp=temp_c, valueWaterLevel=waterLevel)                
                 
         except ValueError:
             print("Syntax error in JSON")
+        except Exception as e:
+            print(f"Error updating values: {e}")
         except:
             print("Unknown error")
             
@@ -130,4 +132,3 @@ while True:
             last_actions["schedule"] = time.time()
         except Exception as e:
             print(f"Error reading schedule: {e}")
-
