@@ -70,6 +70,8 @@ while True:
     if any(s["enabled"] and current_seconds == s["time"] for s in schedules):
         #Move the servo to feed
         feedTheFish()
+        data = utils.readFirebase(idToken)
+        utils.writeFirebase(idToken, valueFeed=False, valueCount=int(data["count"].get("integerValue"))+1)
     
     if (time.time() - last_actions["token"]) > TIMEOUTS["token"]:    
         #Need to ask for a token
