@@ -4,6 +4,7 @@ import urequests
 import ujson
 import time
 from math import log
+import gc
 
 def connect():
     #Connect to WLAN
@@ -43,6 +44,7 @@ def readFirebase(idToken):
       print("Error reading Firebase:", e)
     finally:
       r.close()
+      gc.collect();
     return data
 
 def writeFirebase(idToken, valueFeed=None, valueCount=None, valueTemp=None, valueWaterLevel=None):
@@ -88,7 +90,8 @@ def writeFirebase(idToken, valueFeed=None, valueCount=None, valueTemp=None, valu
     except Exception as e:
       print("Error writing Firebase:", e)
     finally:
-       r.close()
+      r.close()
+      gc.collect();
 
 def read_temperature(raw):
   voltage = raw / 65535.0 * 3.3
